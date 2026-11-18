@@ -68,7 +68,6 @@ Imports:
     doParallel,
     htmlwidgets,
     itertools,
-    qs,
     rlang,
     stringi,
     parallel,
