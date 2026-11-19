@@ -130,16 +130,16 @@ summary_dmrs <- function(dmrs,contrast=NULL, path = "/results/dmrs/", write = TR
 
   if (nrow(dmrs) == 0) {
     # Define the structure of the empty summary dataframe
-    summary <- data.table(
-      Contrast = unique(dmrs$Contrast),
-      Total_DMRS = 0,
-      Hyper_DMRS = 0,
-      Hypo_DMRS = 0,
-      Total_Genes_DMRS = 0,
-      Hyper_Genes_DMRS = 0,
-      Hypo_Genes_DMRS = 0
+    contrasts <- if (is.null(contrast)) character(0) else contrast
+    summary <- data.table::data.table(
+      Contrast = contrasts,
+      Total_DMRS = rep(0L, length(contrasts)),
+      Total_Genes_DMRS = 0L,
+      Hyper_DMRS = 0L,
+      Hyper_Genes_DMRS = 0L,
+      Hypo_DMRS = 0L,
+      Hypo_Genes_DMRS = 0L
     )
-    summary <- rbind(summary, list(contrast, 0, 0, 0, 0, 0, 0))
 
     # Write the empty summary if write is TRUE
     if (write) data.table::fwrite(summary, path)

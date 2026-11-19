@@ -81,10 +81,10 @@ volcanoplot<-function(object,path="./"){
 
 
     # Save the plot
-    ggplot2::ggsave(filename = paste0(path,"volacanoplot_",contrast_name,".png"),
+    ggplot2::ggsave(filename = paste0(path,"volcanoplot_",contrast_name,".png"),
                     device = "png",plot = volcano,
                     width = 10, height = 12)
-    print(paste0(path,"volacanoplot_",contrast_name,".png"))
+    print(paste0(path,"volcanoplot_",contrast_name,".png"))
 
     list_element <- list_element + 1
   }
@@ -207,7 +207,7 @@ manhattanplot<-function(object,path="./"){
     title=paste('Manhattan plot: ',contrast_name)
     kpAddMainTitle(kp, main=title)
 
-    print(paste0(path,"volacanoplot_",contrast_name,".png"))
+    print(paste0(path,"volcanoplot_",contrast_name,".png"))
 
     dev.off()
 

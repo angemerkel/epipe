@@ -84,9 +84,14 @@ plotDMP <- function(DMPann, names= c( "DMP_count.png","DMP_count_facet.png","DMP
     plt_list <- list(g1, g2, g3, g4)
 
     if (!is.null(path)) {
-      sapply(1:length(plt_list), function(x) {
+      # One file name per plot (save_plot adds ".png"); a single name is used as a prefix.
+      names <- sub("\\.png$", "", names)
+      if (length(names) != length(plt_list)) {
+        names <- paste0(names[1], "_", seq_along(plt_list))
+      }
+      sapply(seq_along(plt_list), function(x) {
         save_plot(
-          filename = paste0(names, "_", x, ".png"),
+          filename = names[x],
           object = plt_list[[x]],
           path = path
         )
