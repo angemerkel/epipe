@@ -9,7 +9,6 @@ Description: The package implements a differential methylation analysis pipline 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 Year: 2023
 Suggests: 
     knitr,
@@ -76,3 +75,4 @@ Depends:
     R (>= 2.10)
 LazyData: true
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.1
