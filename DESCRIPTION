@@ -11,8 +11,6 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Year: 2023
 Suggests: 
-    knitr,
-    rmarkdown,
     BiocStyle,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
@@ -67,13 +65,21 @@ Imports:
     writexl,
     doParallel,
     htmlwidgets,
+    jsonlite,
+    knitr,
+    rmarkdown,
+    tibble,
     itertools,
     rlang,
     stringi,
     parallel,
     tools
 Depends: 
-    R (>= 2.10)
+    R (>= 4.6)
 LazyData: true
 VignetteBuilder: knitr
+biocViews: DNAMethylation, MethylationArray, DifferentialMethylation,
+    Preprocessing, QualityControl, Normalization, Software
+Remotes:
+    markgene/maxprobes
 Config/roxygen2/version: 8.1.1
