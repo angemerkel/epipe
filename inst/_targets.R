@@ -26,15 +26,6 @@ tar_option_set(
 source("config.R")
 
 
-# tar_make_clustermq() configuration (okay to leave alone):
-options(clustermq.scheduler = "multiprocess")
-
-# tar_make_future() configuration (okay to leave alone):
-future::plan(future.callr::callr)
-
-
-
-
 # Some preprocessing of the variables of the config.R file:
 data_names <- c(names(data_paths))
 values <- data.table(cbind(data_names,data_paths,arraytype,project_name,mDiffDMP,adjp.valueDMP,p.valueDMP,fdrDMR,mdiffDMR,min.cpgDMR))
