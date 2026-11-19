@@ -38,6 +38,7 @@ Imports:
     rstatix,
     S4Vectors,
     sesame,
+    sesameData,
     SummarizedExperiment,
     assertthat,
     bigstatsr,
