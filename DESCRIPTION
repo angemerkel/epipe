@@ -12,7 +12,8 @@ Roxygen: list(markdown = TRUE)
 Year: 2023
 Suggests: 
     BiocStyle,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr
 Config/testthat/edition: 3
 Imports: 
     Biobase,
