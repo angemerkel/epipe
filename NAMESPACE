@@ -74,7 +74,6 @@ import(limma)
 import(maxprobes)
 import(methylclock)
 import(minfi)
-import(qs)
 import(rlang)
 import(rstatix)
 import(sesame)
@@ -84,35 +83,45 @@ import(stringi)
 import(targets)
 import(tidyr)
 importFrom(GenomicRanges,makeGRangesFromDataFrame)
-importFrom(PCAtools,eigencorplot)
-importFrom(PCAtools,getComponents)
-importFrom(PCAtools,pca)
+importFrom(PCAtools,
+  eigencorplot,
+  getComponents,
+  pca
+)
 importFrom(bigstatsr,FBM)
 importFrom(data.table,data.table)
-importFrom(grDevices,dev.off)
-importFrom(grDevices,jpeg)
-importFrom(grDevices,png)
+importFrom(grDevices,
+  dev.off,
+  jpeg,
+  png
+)
 importFrom(graphics,par)
-importFrom(minfi,detectionP)
-importFrom(minfi,getBeta)
-importFrom(minfi,preprocessFunnorm)
-importFrom(minfi,preprocessNoob)
-importFrom(minfi,preprocessQuantile)
-importFrom(minfi,preprocessSWAN)
+importFrom(minfi,
+  detectionP,
+  getBeta,
+  preprocessFunnorm,
+  preprocessNoob,
+  preprocessQuantile,
+  preprocessSWAN
+)
 importFrom(rlang,sym)
-importFrom(shiny,downloadButton)
-importFrom(shiny,downloadHandler)
-importFrom(shiny,modalDialog)
-importFrom(shiny,observeEvent)
-importFrom(shiny,renderDataTable)
-importFrom(shiny,showModal)
-importFrom(stats,aov)
-importFrom(stats,chisq.test)
-importFrom(stats,cor.test)
-importFrom(stats,prcomp)
-importFrom(stats,prop.test)
-importFrom(stats,sd)
-importFrom(stats,t.test)
+importFrom(shiny,
+  downloadButton,
+  downloadHandler,
+  modalDialog,
+  observeEvent,
+  renderDataTable,
+  showModal
+)
+importFrom(stats,
+  aov,
+  chisq.test,
+  cor.test,
+  prcomp,
+  prop.test,
+  sd,
+  t.test
+)
 importFrom(tools,file_ext)
 importFrom(utils,write.table)
 importFrom(writexl,write_xlsx)

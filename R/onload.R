@@ -2,8 +2,6 @@
 
   suppressPackageStartupMessages({
     library(GGally)
-    library(ggpp)
-    library(ggpmisc)
   })
 
 

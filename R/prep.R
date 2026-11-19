@@ -15,7 +15,6 @@
 #' @import minfi
 #' @import maxprobes
 #' @import grDevices
-#' @import qs
 #'
 #' @export
 #'
@@ -88,8 +87,7 @@ remove_cross_reactive_probes <- function(mSetSqn, sexchr) {
   probeID_start <- rownames(mSetSqn)
   if (annotation(mSetSqn)[1] == "IlluminaHumanMethylationEPICv2") {
     # Read the cross-reactive probe mask for EPICv2
-    mask <- qs::qread(system.file("extdata", "EPICv2_xreactive.qs", package = "epipe"))
-    #mask <- qs::qread("inst/extdata/EPICv2_xreactive.qs")
+    mask <- readRDS(system.file("extdata", "EPICv2_xreactive.rds", package = "epipe"))
     mSetSqn <- mSetSqn[!rownames(mSetSqn) %in% mask, ]
   } else {
     # For other arrays, use maxprobes::dropXreactiveLoci

@@ -26,15 +26,6 @@ tar_option_set(
 source("config.R")
 
 
-# tar_make_clustermq() configuration (okay to leave alone):
-options(clustermq.scheduler = "multiprocess")
-
-# tar_make_future() configuration (okay to leave alone):
-future::plan(future.callr::callr)
-
-
-
-
 # Some preprocessing of the variables of the config.R file:
 data_names <- c(names(data_paths))
 values <- data.table(cbind(data_names,data_paths,arraytype,project_name,mDiffDMP,adjp.valueDMP,p.valueDMP,fdrDMR,mdiffDMR,min.cpgDMR))
@@ -160,7 +151,7 @@ targets <- tarchetypes::tar_map(
   # tar_target(betas_path, file.path(custom_paths$temp,"betas.bk"), format = "file"),
 
   # Get beta values and save to disk
-  tar_target(betas, epipe::betas_disk(clean_age,backingfile=file.path(custom_paths$temp,"betas")),
+  tar_target(betas, epipe::betas_disk(clean_age,backingfile=paste0(custom_paths$temp,"betas")),
   packages = c("minfi","bigstatsr")),
 
   tar_target(betas_idx, {b<-minfi::getBeta(clean_age);list(rn=rownames(b),cn=colnames(b))}),
@@ -286,10 +277,12 @@ targets <- tarchetypes::tar_map(
   tar_target(dmrs_f, epipe::filter_dmrs(dmrs,p.value = 'FDR', mDiff = mdiffDMR, min.cpg=min.cpgDMR)),
   tar_target(save_dmrs,
              writexl::write_xlsx(
-               dmrs, paste0(custom_paths$dmrs_folder,"_",data_names,".xlsx"))),
+               dmrs, paste0(custom_paths$dmrs_folder,data_names,"_dmrs.xlsx"))),
 
   # Summarize Dmrs and dmps
-  tar_target(sumaries,epipe::summarize(dmrs = dmrs_f, dmps = dmps_f,path = paste0(custom_paths$results_folder,"/",data_names,"/"))),
+  tar_target(sumaries,epipe::summarize(dmrs = dmrs_f, dmps = dmps_f,
+                                       contrasts = colnames(model$contrasts),
+                                       path = paste0(custom_paths$results_folder,data_names,"/"))),
 
   # Get DMRS genes
   tar_target(dmr_genes,{
@@ -308,7 +301,7 @@ targets <- tarchetypes::tar_map(
   tar_target(dmr_pathways, epipe::get_pathways(dmr_genes,res.folder =paste0(custom_paths$pathway_folder,"/DMRs/"),savefile=TRUE)),
   tar_target(dmrs_summary,
               epipe::summary_dmrs(
-                dmrs,path=file.path(custom_paths$dmrs_folder,paste0("full_dmrs_summary",data_names,".csv"))),
+                dmrs,path=paste0(custom_paths$dmrs_folder,data_names,"_dmrs_summary_full.csv")),
               error = "continue"),
 
 
@@ -341,19 +334,21 @@ targets <- tarchetypes::tar_map(
 combined <- tarchetypes::tar_combine(
   combined_summary,
   targets[["sumaries"]],
-  command = dplyr::bind_rows(!!!.x,.id = "experiment")
+  command = dplyr::mutate(dplyr::bind_rows(!!!.x,.id = "experiment"),
+                          experiment = sub("^sumaries_", "", experiment))
 )
 
 combined_ss <- tarchetypes::tar_combine(
   ss_comb,
   targets[["ss_clean_dt"]],
-  command = dplyr::bind_rows(!!!.x,.id = "experiment")
+  command = dplyr::mutate(dplyr::bind_rows(!!!.x,.id = "experiment"),
+                          experiment = sub("^ss_clean_dt_", "", experiment))
 )
 
 save_combined<-tar_target(
   save_combined_summary,{
     data.table::setorder(combined_summary,experiment,Contrast)
-    data.table::fwrite(combined_summary,paste0(results_folder,"/full_summary.csv"))
+    data.table::fwrite(combined_summary,file.path(sub("/+$", "", results_folder),"full_summary.csv"))
   }
 )
 

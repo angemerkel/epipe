@@ -1,21 +1,23 @@
 Package: epipe
 Title: Automated (E)pigenetic (PIPE)line with Targets
-Version: 0.0.0.9000
-Authors@R: 
+Version: 0.1.0
+Authors@R: c(
+    person("Angelika", "Merkel", , "amerkel@carrerasresearch.org", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-5164-6803",
+                       "conceived the project, wrote the original analysis script, supervised development; maintains this fork")),
     person(c("Izar", "Llaquet"), "de Villasante", , "idevillasante@carrerasresearch.org", role = c("aut"),
-           comment = c(ORCID = "https://orcid.org/0000-0001-7325-0631 "))
-    person(c("Marina", "Lladó"), "Vilardell", , "mvilardell@carrerasresearch.org", role = c("aut","cre"))
+           comment = c(ORCID = "0000-0001-7325-0631", "built the original pipeline")),
+    person(c("Marina", "Lladó"), "Vilardell", , "mvilardell@carrerasresearch.org", role = c("aut"),
+           comment = "completed the documentation and extended features"))
 Description: The package implements a differential methylation analysis pipline managed with targets in order to automate the job.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 Year: 2023
 Suggests: 
-    knitr,
-    rmarkdown,
     BiocStyle,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr
 Config/testthat/edition: 3
 Imports: 
     Biobase,
@@ -39,6 +41,7 @@ Imports:
     rstatix,
     S4Vectors,
     sesame,
+    sesameData,
     SummarizedExperiment,
     assertthat,
     bigstatsr,
@@ -67,13 +70,21 @@ Imports:
     writexl,
     doParallel,
     htmlwidgets,
+    jsonlite,
+    knitr,
+    rmarkdown,
+    tibble,
     itertools,
-    qs,
     rlang,
     stringi,
     parallel,
     tools
 Depends: 
-    R (>= 2.10)
+    R (>= 4.6)
 LazyData: true
 VignetteBuilder: knitr
+biocViews: DNAMethylation, MethylationArray, DifferentialMethylation,
+    Preprocessing, QualityControl, Normalization, Software
+Remotes:
+    markgene/maxprobes
+Config/roxygen2/version: 8.1.1

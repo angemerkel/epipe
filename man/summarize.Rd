@@ -4,12 +4,15 @@
 \alias{summarize}
 \title{Summarize DMPs and DMRs}
 \usage{
-summarize(dmps, dmrs, path = "results/")
+summarize(dmps, dmrs, contrasts = NULL, path = "results/")
 }
 \arguments{
 \item{dmps}{Data.table containing DMP information.}
 
 \item{dmrs}{Data.table containing DMR information.}
+
+\item{contrasts}{Optional character vector with all contrasts of the model.
+Contrasts without any DMP/DMR are reported with zero counts instead of being dropped.}
 
 \item{path}{Path to save the summary, defaults to "results/".}
 }
