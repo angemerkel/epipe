@@ -1,3 +1,10 @@
+# epipe (development version)
+
+## Development
+
+* The unit tests now run automatically on GitHub for every pull request and every push to `master`, using R 4.6 and Bioconductor 3.23 (the official Bioconductor Docker image).
+* `.Rbuildignore` is now part of the repository, so builds from a GitHub checkout leave out development files.
+
 # epipe 0.1.0
 
 First release of this fork of [ijcBIT/epipe](https://github.com/ijcBIT/epipe). It brings the pipeline back to a working state on current R and Bioconductor (tested with R 4.6.1, Bioconductor 3.23 and Ubuntu 24.04). The bundled EPICv2 example runs end to end. Some output files also have new, consistent names (see "Output file names").
