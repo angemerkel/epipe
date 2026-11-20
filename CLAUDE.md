@@ -15,7 +15,6 @@ This repository is a fork of [ijcBIT/epipe](https://github.com/ijcBIT/epipe) tha
 - Merge PRs with "Rebase and merge" or a merge commit, never squash, so the individual commits stay readable.
 - Releases are tags on `master` (`v0.1.0`, …) with a matching `NEWS.md` entry and DESCRIPTION version.
 - `upstream` ([ijcBIT/epipe](https://github.com/ijcBIT/epipe)) is fetch-only; never push to it. Contributing back is a separate, deliberate PR to that repository.
-- Transition: the existing `development` branch carries the initial modernization and is merged into `master` with one PR, then retired.
 
 ## Development commands
 
