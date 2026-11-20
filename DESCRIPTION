@@ -1,6 +1,6 @@
 Package: epipe
 Title: Automated (E)pigenetic (PIPE)line with Targets
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
     person("Angelika", "Merkel", , "amerkel@carrerasresearch.org", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5164-6803",

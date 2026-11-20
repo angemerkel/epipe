@@ -1,0 +1,40 @@
+# Run the unit tests in the Bioconductor release image that matches the
+# R and Bioconductor versions epipe is developed on.
+name: R-tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: bioconductor/bioconductor_docker:RELEASE_3_23
+    env:
+      R_LIBS_USER: /github/home/R/library
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: /github/home/R/library
+          key: rlib-bioc3.23-${{ hashFiles('DESCRIPTION') }}
+          restore-keys: rlib-bioc3.23-
+
+      - name: Install dependencies
+        run: |
+          mkdir -p "$R_LIBS_USER"
+          Rscript -e 'pak::local_install_dev_deps(upgrade = FALSE, ask = FALSE)'
+
+      - name: Run tests
+        # Run from a scratch folder: loading epipe copies _targets.R,
+        # config.R and report_files/ into the working directory.
+        run: |
+          mkdir -p "$RUNNER_TEMP/scratch" && cd "$RUNNER_TEMP/scratch"
+          Rscript -e "devtools::test('$GITHUB_WORKSPACE', stop_on_failure = TRUE)"
