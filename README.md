@@ -32,9 +32,9 @@ Installing into an empty library takes about 20–25 minutes.
 Create a folder for the analysis and run the pipeline from there:
 
 ``` r
-library(epipe)   # copies _targets.R, config.R and report_files/ into the current folder
+epipe::init_project()   # copies _targets.R, config.R and report_files/ into the current folder
 # edit config.R: sample sheet, array type, contrasts, thresholds
-epipe::run()     # runs targets::tar_make()
+epipe::run()            # runs targets::tar_make()
 ```
 
 As shipped, `config.R` analyses the bundled EPICv2 example: 8 samples in three groups. That run takes about 25 minutes and about 3.5 GB of disk space. Results go to `results/` and `analysis/`. Every step is cached in `_targets/`, so an interrupted run resumes where it stopped.

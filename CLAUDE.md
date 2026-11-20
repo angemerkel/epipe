@@ -25,7 +25,7 @@ devtools::test()       # unit tests (tests/testthat)
 devtools::check()      # full package check
 ```
 
-Reinstalling matters because the pipeline calls functions as `epipe::fn` and loads the report with `system.file("_qmd/report.qmd", package = "epipe")`: it always runs the *installed* package, not the source tree. Run `renv::install(".")` and `devtools::test()` from outside the repo root, or loading the package drops stray copies of `_targets.R`, `config.R` and `report_files/` there (see `.onAttach` below). This is a temporary workaround until the copying moves from `.onAttach` into an explicit `init_project()` function.
+Reinstalling matters because the pipeline calls functions as `epipe::fn` and loads the report with `system.file("_qmd/report.qmd", package = "epipe")`: it always runs the *installed* package, not the source tree.
 
 Dependencies are managed with renv. Bioconductor packages must be requested explicitly (`renv::install("bioc::minfi")`), and the Quarto CLI must be on PATH.
 
@@ -34,9 +34,9 @@ Dependencies are managed with renv. Bioconductor packages must be requested expl
 Run the pipeline in a dedicated run directory outside the repository:
 
 ``` r
-library(epipe)   # .onAttach copies _targets.R, config.R and report_files/ into getwd() if absent
+epipe::init_project()   # copies _targets.R, config.R and report_files/ into getwd(); keeps existing files
 # edit ./config.R
-epipe::run()     # = targets::tar_make()
+epipe::run()            # = targets::tar_make()
 targets::tar_make(names = "dmps_example_EPICv2")  # build one target; names are <target>_<dataset>
 targets::tar_read(dmps_example_EPICv2)
 ```
@@ -53,7 +53,7 @@ The bundled EPICv2 example (`inst/extdata/EPICv2`) takes \~25 min and \~3.5 GB. 
 - **Dynamic branching:** `topN` fans out PCA, correlation plots, biplots and heatmaps via `pattern = map(...)`.
 - **Reports:** `tar_quarto_rep` renders `inst/_qmd/report.qmd` once per report variant (`report_colab`, `report_analyst` in `config.R`), passing paths and dataset values as JSON params; `report.qmd` includes the `_*.qmd` child sections.
 - **Storage:** `format = "qs"` is backed by `qs2` (targets \>= 1.11). The archived `qs` package does not build on R \>= 4.6, so never call `qs::`.
-- **targets does not track code inside the epipe package**, only globals in `_targets.R`. After reinstalling, targets whose package function changed are *not* rebuilt: use `targets::tar_invalidate()` or a fresh run directory, and copy the updated `inst/_targets.R` into the run directory (`.onAttach` never overwrites an existing copy).
+- **targets does not track code inside the epipe package**, only globals in `_targets.R`. After reinstalling, targets whose package function changed are *not* rebuilt: use `targets::tar_invalidate()` or a fresh run directory, and copy the updated `inst/_targets.R` into the run directory (`init_project()` keeps existing files; `overwrite = TRUE` also replaces an edited `config.R`).
 
 ## Conventions
 

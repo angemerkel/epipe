@@ -37,7 +37,7 @@ These files serve as the default input data for running the pipeline.
 
 To execute the pipeline using the default config.R file, run the following commands in R: 
 ```{r, eval=FALSE}
-library(epipe) 
+epipe::init_project() 
 
 targets::tar_make() 
 ```

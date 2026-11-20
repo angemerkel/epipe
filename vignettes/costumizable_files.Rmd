@@ -17,10 +17,10 @@ There are two files that are costumizable:
 
 # CONFIGURATION FILE: 
  
-Configuration settings are controlled through the config.R file, which is automatically copied to your working directory when you load the epipe package. This means you don't need to manually download or create the configuration file—simply run: 
+Configuration settings are controlled through the config.R file. To get a copy of the template in your analysis folder, run once: 
 
 ```{R,eval=FALSE}
-library(epipe) 
+epipe::init_project() 
 ```
 
 This will place the config.R file in your working directory, where you can modify it before running the pipeline, allowing you to customize key analysis parameters to fit your research needs. 
@@ -180,13 +180,13 @@ report_colab and report_analyst: These parameters define the content of the gene
 
 # TARGETS FILE
 
-The _targets.R file contains the main code for the pipeline, which includes the sequence of tasks and functions that will be executed. When you load the EPIPE package with 
+The _targets.R file contains the main code for the pipeline, which includes the sequence of tasks and functions that will be executed. Running 
 
 ```{R, eval=FALSE}
-library(epipe)
+epipe::init_project()
 ```
 
-the _targets.R file is automatically copied to your current working directory (if it's not already present). 
+copies the _targets.R file to your current working directory (an existing copy is kept unless you use `overwrite = TRUE`). 
 
 Notice that for running the pipeline you always need to have the _targets.R file in the currently working directory.  
 
