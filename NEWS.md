@@ -1,5 +1,9 @@
 # epipe (development version)
 
+## Breaking changes
+
+* `library(epipe)` no longer writes files into the working directory. To set up a new analysis folder, run `epipe::init_project()` once: it copies `_targets.R`, `config.R` and `report_files/` there and keeps any of them that already exist, unless `overwrite = TRUE` (#4).
+
 ## Development
 
 * The unit tests now run automatically on GitHub for every pull request and every push to `master`, using R 4.6 and Bioconductor 3.23 (the official Bioconductor Docker image).
