@@ -1,0 +1,8 @@
+^renv$
+^renv\.lock$
+^analysis$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.github$
+^CLAUDE\.md$
+^notes$
