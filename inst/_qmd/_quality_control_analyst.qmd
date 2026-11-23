@@ -17,15 +17,15 @@ To check the quality of the experiment, the total signal from each probe (methyl
 
 The following plot shows the mean detection p-value for each sample (p <0.001 is recommended, samples with higher values should be excluded): 
 
-![Mean detection p-value](`r file.path(paths$qc_folder, "mean_detection_pvalues.jpeg")`){#fig-mean width=80%}
+![Mean detection p-value](`r img(paths$qc_folder, "mean_detection_pvalues.jpeg")`){#fig-mean width=80%}
 
 
 Another quality metric is the ratio of the median methylated and unmethylated signal intensities. In the plot below ‘good’ samples will cluster together; ‘bad’ samples will fall into the left lower corner. 
 
-![Mean quality control plot](`r file.path(paths$qc_folder, "mean_qc.png")`){#fig-mean_qc}
+![Mean quality control plot](`r img(paths$qc_folder, "mean_qc.png")`){#fig-mean_qc}
 
 
-For a comprehensive qc report including the validation of specific experimental steps you can check the pdf provided by minfi [here](`r file.path(paths$qc_folder, "Report.pdf")`).
+For a comprehensive qc report including the validation of specific experimental steps you can check the pdf provided by minfi [here](`r rel_link(file.path(paths$qc_folder, "Report.pdf"))`).
 
 
 
@@ -46,9 +46,9 @@ PreprocessSWAN() = subset-quantile within array normalization correcting for the
 PreprocessQuantile() = stratified quantile normalization preprocessing applied to the methylated and unmethylated intensities separately. The distribution of type I and type II signals is forced to be the same by first quantile normalizing the type II probes across samples and then interpolating a reference distribution to which we normalize the type I probes. 
 
 ::: {#fig-densityplots layout="[50,50]"}
-![](`r file.path(paths$qc_folder, "density_plot_before_norm.png")`)
+![](`r img(paths$qc_folder, "density_plot_before_norm.png")`)
 
-![](`r file.path(paths$qc_folder, "density_plot_after_norm.png")`)
+![](`r img(paths$qc_folder, "density_plot_after_norm.png")`)
 
 Beta values distribution
 :::
@@ -84,14 +84,14 @@ plots_to_include <- exclude_plot(exclude)
 
 ::: {.columns}
 ::: {.column width=1/2}
-![](`r file.path(paths$qc_folder, plots_to_include[1])`)
-![](`r file.path(paths$qc_folder, plots_to_include[2])`)
-![](`r file.path(paths$qc_folder, plots_to_include[3])`)
+![](`r img(paths$qc_folder, plots_to_include[1])`)
+![](`r img(paths$qc_folder, plots_to_include[2])`)
+![](`r img(paths$qc_folder, plots_to_include[3])`)
 :::
 ::: {.column width=1/2}
-![](`r file.path(paths$qc_folder, plots_to_include[4])`)
-![](`r file.path(paths$qc_folder, plots_to_include[5])`)
-![](`r file.path(paths$qc_folder, plots_to_include[6])`)
+![](`r img(paths$qc_folder, plots_to_include[4])`)
+![](`r img(paths$qc_folder, plots_to_include[5])`)
+![](`r img(paths$qc_folder, plots_to_include[6])`)
 :::
 :::
 
@@ -104,7 +104,7 @@ Sex specific DNA methylation differences are are well known (sex is a common co-
 The plot below shows the sex predicted (The information is added to the metadata).
 
 
-![Sex estimation](`r file.path(paths$sexplot_folder, "sex_estimation.png")`){#fig-density_plot}
+![Sex estimation](`r img(paths$sexplot_folder, "sex_estimation.png")`){#fig-density_plot}
 
 ```{r}
  eval(
@@ -278,7 +278,7 @@ Subsequently, a t-test was performed for each cell type to compare the proportio
 
 The results, depicted in the boxplot, show the distribution of cell type proportions across the conditions with the corresponding p-values indicating significant differences.
 
-![Boxplot Cell type proportion](`r file.path(paths$qc_folder, "Cell_type_prop.png")`){#fig-boxplot_deconv}
+![Boxplot Cell type proportion](`r img(paths$qc_folder, "Cell_type_prop.png")`){#fig-boxplot_deconv}
 
 
 ### Batch effects:
@@ -288,5 +288,5 @@ We check the experimental design (balanced, unbalance) and whether there is any 
 The plot below shows pairwise comparisons of all variables, highlighting significant correlations and similarities (Pearson corr. test for two continuous variable, chi-square/equal proportions for two categorical variables, Anova for a continuous and a categorical variable). 
 
 
-![ Variable association plot ](`r file.path(paths$qc_folder, "correlation_analysis.png")`){#fig-correlation_analysis}
+![ Variable association plot ](`r img(paths$qc_folder, "correlation_analysis.png")`){#fig-correlation_analysis}
 

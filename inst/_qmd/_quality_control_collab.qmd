@@ -47,9 +47,9 @@ if (norm == 'noob'){
 
 
 ::: {#fig-densityplots layout="[50,50]"}
-![](`r file.path(paths$qc_folder, "density_plot_before_norm.png")`)
+![](`r img(paths$qc_folder, "density_plot_before_norm.png")`)
 
-![](`r file.path(paths$qc_folder, "density_plot_after_norm.png")`)
+![](`r img(paths$qc_folder, "density_plot_after_norm.png")`)
 
 Beta values distribution
 :::
@@ -61,7 +61,7 @@ Sex specific DNA methylation differences are are well known (sex is a common co-
 The plot below shows the sex predicted (The information is added to the metadata).
 
 
-![Sex estimation](`r file.path(paths$sexplot_folder, "sex_estimation.png")`){#fig-density_plot}
+![Sex estimation](`r img(paths$sexplot_folder, "sex_estimation.png")`){#fig-density_plot}
 
 ```{r}
  eval(
@@ -235,5 +235,5 @@ Subsequently, a t-test was performed for each cell type to compare the proportio
 
 The results, depicted in the boxplot, show the distribution of cell type proportions across the conditions with the corresponding p-values indicating significant differences.
 
-![Boxplot Cell type proportion](`r file.path(paths$qc_folder, "Cell_type_prop.png")`){#fig-boxplot_deconv}
+![Boxplot Cell type proportion](`r img(paths$qc_folder, "Cell_type_prop.png")`){#fig-boxplot_deconv}
 

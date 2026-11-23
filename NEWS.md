@@ -4,6 +4,10 @@
 
 * `library(epipe)` no longer writes files into the working directory. To set up a new analysis folder, run `epipe::init_project()` once: it copies `_targets.R`, `config.R` and `report_files/` there and keeps any of them that already exist, unless `overwrite = TRUE` (#4).
 
+## Bug fixes
+
+* The HTML reports now show their images. The plots are embedded in the HTML file, so a report can be opened or shared on its own, and the link to minfi's QC report (`Report.pdf`) is relative to the report (#5).
+
 ## Development
 
 * The unit tests now run automatically on GitHub for every pull request and every push to `master`, using R 4.6 and Bioconductor 3.23 (the official Bioconductor Docker image).

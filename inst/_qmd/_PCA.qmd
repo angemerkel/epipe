@@ -19,9 +19,9 @@ paths$bplots_folder
 
 ::: {#fig-pca layout="[50,50]"}
 
-![](`r file.path(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC1PC2.png"))`)
+![](`r img(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC1PC2.png"))`)
 
-![](`r file.path(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC3PC4.png"))`)
+![](`r img(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC3PC4.png"))`)
 
 PCA plots
 :::
