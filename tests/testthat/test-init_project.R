@@ -1,18 +1,14 @@
 template <- function(item) system.file(item, package = "epipe", mustWork = TRUE)
 
-test_that("copies _targets.R, config.R and report_files/ unchanged", {
+test_that("copies _targets.R and config.R unchanged", {
   path <- withr::local_tempdir()
   copied <- suppressMessages(init_project(path))
 
-  expect_setequal(basename(copied), c("_targets.R", "config.R", "report_files"))
+  expect_setequal(basename(copied), c("_targets.R", "config.R"))
   for (file in c("_targets.R", "config.R")) {
     expect_equal(unname(tools::md5sum(file.path(path, file))),
                  unname(tools::md5sum(template(file))))
   }
-  expect_setequal(
-    list.files(file.path(path, "report_files"), recursive = TRUE),
-    list.files(template("report_files"), recursive = TRUE)
-  )
 })
 
 test_that("creates a missing folder", {

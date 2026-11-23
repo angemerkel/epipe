@@ -2,11 +2,12 @@
 
 ## Breaking changes
 
-* `library(epipe)` no longer writes files into the working directory. To set up a new analysis folder, run `epipe::init_project()` once: it copies `_targets.R`, `config.R` and `report_files/` there and keeps any of them that already exist, unless `overwrite = TRUE` (#4).
+* `library(epipe)` no longer writes files into the working directory. To set up a new analysis folder, run `epipe::init_project()` once: it copies `_targets.R` and `config.R` there and keeps either of them that already exist, unless `overwrite = TRUE` (#4).
 
 ## Bug fixes
 
 * The HTML reports now show their images. The plots are embedded in the HTML file, so a report can be opened or shared on its own, and the link to minfi's QC report (`Report.pdf`) is relative to the report (#5).
+* The `report_files/` folder is no longer copied into the analysis folder: the reports embed everything they need. Copies left over from earlier versions are unused and can be deleted (#5).
 
 ## Development
 
