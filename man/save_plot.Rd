@@ -10,17 +10,21 @@ save_plot(object, filename, width = 480, height = 620, path = "./")
 \item{object}{A plot object (base R plot or ggplot2 plot).}
 
 \item{filename}{Name of the file to save the plot. \code{.png} is appended unless
-the name already ends with it.}
+the name already ends with it. An existing file with that name is
+overwritten.}
 
-\item{width}{Width of the plot in inches (default: 480).}
+\item{width}{Width of the plot in pixels (default: 480).}
 
-\item{height}{Height of the plot in inches (default: 620).}
+\item{height}{Height of the plot in pixels (default: 620).}
 
-\item{path}{Directory path for saving the plot (default: "./").}
+\item{path}{Directory path for saving the plot (default: "./"). It is created
+if it does not exist; an error is raised if it cannot be created or is not
+writable.}
 }
 \value{
 The plot object.
 }
 \description{
-This function saves a plot to a file in PNG format.
+This function saves a plot to a file in PNG format, at 100 dpi for both
+plot types, so that \code{width} and \code{height} give the size in pixels.
 }

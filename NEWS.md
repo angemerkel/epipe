@@ -9,6 +9,8 @@
 * The HTML reports now show their images. The plots are embedded in the HTML file, so a report can be opened or shared on its own, and the link to minfi's QC report (`Report.pdf`) is relative to the report (#5).
 * The `report_files/` folder is no longer copied into the analysis folder: the reports embed everything they need. Copies left over from earlier versions are unused and can be deleted (#5).
 * The PCA correlation plots are now saved as `<dataset>_pca_corrplot<N>.png` instead of `<dataset>_pca_corrplot<N>.png.png`. Plot files are never given a doubled `.png` extension, also with a `_targets.R` copied from an earlier version (#6).
+* All plots are now saved at the same size: ggplot2 plots (DMP plots, PCA biplots, `enrichplot_static_*` pathway plots) are saved at 100 dpi like the other plots, so they are 480 × 620 px instead of 1440 × 1860 px. The plots look the same at a lower resolution, and the HTML reports are smaller (#11).
+* When a plot folder cannot be created or is not writable, the pipeline now stops with an error that names the folder, instead of a graphics device error. A failed base graphics plot no longer leaves its PNG file open (#11).
 
 ## Development
 
