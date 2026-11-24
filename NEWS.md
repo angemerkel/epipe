@@ -6,6 +6,7 @@
 
 ## Bug fixes
 
+* **Changes DMP results.** `diff_meanMeth`, the difference in mean methylation between the groups of a contrast, was computed for other probes than the rows it was reported in. As a result, the `mDiffDMP` filter dropped about half of the significant DMPs at random, and the split of DMP genes into `hyper_pathway.csv` and `hypo_pathway.csv` was random. Each probe now gets its own difference. In the bundled EPICv2 example, the Control-Treated contrast now has 211,144 DMPs instead of 113,193. The `rn` column of the DMP tables now holds each probe's row in the beta matrix instead of its rank. DMRs are not affected (#13).
 * The HTML reports now show their images. The plots are embedded in the HTML file, so a report can be opened or shared on its own, and the link to minfi's QC report (`Report.pdf`) is relative to the report (#5).
 * The `report_files/` folder is no longer copied into the analysis folder: the reports embed everything they need. Copies left over from earlier versions are unused and can be deleted (#5).
 * The PCA correlation plots are now saved as `<dataset>_pca_corrplot<N>.png` instead of `<dataset>_pca_corrplot<N>.png.png`. Plot files are never given a doubled `.png` extension, also with a `_targets.R` copied from an earlier version (#6).

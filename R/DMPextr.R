@@ -100,7 +100,8 @@ DMPextr <- function(
       genelist = ann,
       p.value = 1
     )
-    DMP_1$rn<-1:nrow(DMP_1)
+    # DMP_1 is sorted by significance; its "rn" column (from ann) is each
+    # probe's row in betas and is used below, so it must not be renumbered.
     # If no DMPs found, return a data.table with proper column names
     if (nrow(DMP_1) < 2) {
       warning(paste("No DMP found for contrast:", ContrastsDM[i], sep = " "))
