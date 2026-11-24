@@ -1,13 +1,13 @@
 
 ::: {#fig-dmps-m1 layout-nrow=2 layout-ncol=2}
 
-![DMPs count](`r file.path(paths$dmp_folder, "DMP_count.png")`){#fig-dmp-count-m1}
+![DMPs count](`r img(paths$dmp_folder, "DMP_count.png")`){#fig-dmp-count-m1}
 
-![DMPs count Hyper/Hypo](`r file.path(paths$dmp_folder, "DMP_count_facet.png")`){#fig-dmp-facet-m1}
+![DMPs count Hyper/Hypo](`r img(paths$dmp_folder, "DMP_count_facet.png")`){#fig-dmp-facet-m1}
 
-![CGI annotation](`r file.path(paths$dmp_folder, "DMP_annCGI.png")`){#fig-dmp-cgi-m1}
+![CGI annotation](`r img(paths$dmp_folder, "DMP_annCGI.png")`){#fig-dmp-cgi-m1}
 
-![Genomic annotation](`r file.path(paths$dmp_folder, "DMP_annGenomic.png")`){#fig-dmp-Genomic-m1}
+![Genomic annotation](`r img(paths$dmp_folder, "DMP_annGenomic.png")`){#fig-dmp-Genomic-m1}
 
 Differentially Methylated Probes (DMPs) counts & annotation for Model 1
 :::

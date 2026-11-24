@@ -32,7 +32,7 @@ Installing into an empty library takes about 20–25 minutes.
 Create a folder for the analysis and run the pipeline from there:
 
 ``` r
-epipe::init_project()   # copies _targets.R, config.R and report_files/ into the current folder
+epipe::init_project()   # copies _targets.R and config.R into the current folder
 # edit config.R: sample sheet, array type, contrasts, thresholds
 epipe::run()            # runs targets::tar_make()
 ```

@@ -34,7 +34,7 @@ Dependencies are managed with renv. Bioconductor packages must be requested expl
 Run the pipeline in a dedicated run directory outside the repository:
 
 ``` r
-epipe::init_project()   # copies _targets.R, config.R and report_files/ into getwd(); keeps existing files
+epipe::init_project()   # copies _targets.R and config.R into getwd(); keeps existing files
 # edit ./config.R
 epipe::run()            # = targets::tar_make()
 targets::tar_make(names = "dmps_example_EPICv2")  # build one target; names are <target>_<dataset>

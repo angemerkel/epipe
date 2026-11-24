@@ -24,9 +24,9 @@ paths$bplots_folder
 
 ::: {#fig-pca layout="[50,50]"}
 
-![](`r file.path(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC1PC2.png"))`)
+![](`r img(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC1PC2.png"))`)
 
-![](`r file.path(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC3PC4.png"))`)
+![](`r img(paths$bplots_folder, paste0(values_row$data_names,"_pc_plot1000PC3PC4.png"))`)
 
 PCA plots
 :::
@@ -41,7 +41,7 @@ paths$corrplot_folder
 ```
 
 
-![Correlation plot](`r file.path(paths$corrplot_folder, paste0('/10000/',values_row$data_names,"_pca_corrplot10000.png.png"))`){#fig-Corrplot}
+![Correlation plot](`r img(paths$corrplot_folder, paste0('/10000/',values_row$data_names,"_pca_corrplot10000.png.png"))`){#fig-Corrplot}
 
 
 
@@ -69,5 +69,5 @@ paths$heatmap_folder
 ```
 
 
-![Heatmap](`r file.path(paths$heatmap_folder, paste0(values_row$data_names,"_heatmap_10000.png"))`){#fig-Heatmap}
+![Heatmap](`r img(paths$heatmap_folder, paste0(values_row$data_names,"_heatmap_10000.png"))`){#fig-Heatmap}
 

@@ -165,6 +165,13 @@ paths <- jsonlite::fromJSON(params$paths)
 
 ```
 
+```{r report helpers}
+#| include: false
+# Embed images as data URIs and link files relative to the report (see R/report_helpers.R)
+img <- epipe:::report_image
+rel_link <- function(path) epipe:::report_link(path, paths$report_folder)
+```
+
 ```{r load ss,interactive=TRUE}
 # # Localize sample sheet to potentially improve loading speed
 # local({

@@ -13,13 +13,12 @@ Default is the current working directory.}
 \item{overwrite}{Replace files that already exist in \code{path}? Default is \code{FALSE}.}
 }
 \value{
-Invisibly, the paths of the files and folders that were copied.
+Invisibly, the paths of the files that were copied.
 }
 \description{
 Copies the files a pipeline run needs into \code{path}: the pipeline definition
-\verb{_targets.R}, the configuration template \code{config.R} and the \verb{report_files/}
-folder. Run it once in a new analysis folder, edit \code{config.R}, then start
-the pipeline with \code{\link[=run]{run()}}.
+\verb{_targets.R} and the configuration template \code{config.R}. Run it once in a
+new analysis folder, edit \code{config.R}, then start the pipeline with \code{\link[=run]{run()}}.
 }
 \details{
 Existing files are kept unless \code{overwrite = TRUE}. Note that

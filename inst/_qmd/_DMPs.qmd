@@ -235,7 +235,7 @@ for (contrast in contrast_names) {
   if (file.exists(image_path)){
     
     # Display the image
-    markdown_text <- c(markdown_text, paste0("![", contrast, "](", image_path, ")"))
+    markdown_text <- c(markdown_text, paste0("![", contrast, "](", img(image_path), ")"))
     #cat("![",contrast,"](`r ",image_path,"`)\n\n")
   
   }

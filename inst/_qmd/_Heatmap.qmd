@@ -10,4 +10,4 @@ paths$heatmap_folder
 
 
 
-![Heatmap](`r file.path(paths$heatmap_folder, paste0(values_row$data_names,"_heatmap_1000.png"))`){#fig-Heatmap}
+![Heatmap](`r img(paths$heatmap_folder, paste0(values_row$data_names,"_heatmap_1000.png"))`){#fig-Heatmap}
