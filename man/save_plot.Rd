@@ -9,7 +9,8 @@ save_plot(object, filename, width = 480, height = 620, path = "./")
 \arguments{
 \item{object}{A plot object (base R plot or ggplot2 plot).}
 
-\item{filename}{Name of the file to save the plot.}
+\item{filename}{Name of the file to save the plot. \code{.png} is appended unless
+the name already ends with it.}
 
 \item{width}{Width of the plot in inches (default: 480).}
 

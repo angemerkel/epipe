@@ -174,7 +174,7 @@ targets <- tarchetypes::tar_map(
   tar_target(pca_corrplot,epipe::corpca(beta_top100 = top,
                                  metadata=ss_clean_allvariables,
                                  path=paste0(custom_paths$corrplot_folder,"/",NROW(top),"/"),
-                                 filename=paste0(data_names,"_pca_corrplot",NROW(top),".png"),
+                                 filename=paste0(data_names,"_pca_corrplot",NROW(top)),
                                  title=paste0("PC1-6 correlations with ",data_names," clinical vars(top ",NROW(top)," )")
                                  ),
              pattern=map(top)),
