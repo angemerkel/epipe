@@ -41,7 +41,7 @@ paths$corrplot_folder
 ```
 
 
-![Correlation plot](`r img(paths$corrplot_folder, paste0('/10000/',values_row$data_names,"_pca_corrplot10000.png.png"))`){#fig-Corrplot}
+![Correlation plot](`r img(paths$corrplot_folder, paste0('/10000/',values_row$data_names,"_pca_corrplot10000.png"))`){#fig-Corrplot}
 
 
 

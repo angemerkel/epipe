@@ -3,7 +3,8 @@
 #' This function saves a plot to a file in PNG format.
 #'
 #' @param object A plot object (base R plot or ggplot2 plot).
-#' @param filename Name of the file to save the plot.
+#' @param filename Name of the file to save the plot. `.png` is appended unless
+#'   the name already ends with it.
 #' @param width Width of the plot in inches (default: 480).
 #' @param height Height of the plot in inches (default: 620).
 #' @param path Directory path for saving the plot (default: "./").
@@ -12,6 +13,7 @@
 save_plot <- function(object, filename, width = 480, height = 620, path = "./") {
   # Create the directory if it doesn't exist
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
+  filename <- sub("\\.png$", "", filename)
 
   # Determine the type of plot (base R or ggplot2)
   is_ggplot <- inherits(object, "gg") || inherits(object, "ggplot")

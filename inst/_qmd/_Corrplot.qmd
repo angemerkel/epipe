@@ -8,4 +8,4 @@ paths$corrplot_folder
 ```
 
 
-![Correlation plot](`r img(paths$corrplot_folder, paste0('/1000/',values_row$data_names,"_pca_corrplot1000.png.png"))`){#fig-Heatmap}
+![Correlation plot](`r img(paths$corrplot_folder, paste0('/1000/',values_row$data_names,"_pca_corrplot1000.png"))`){#fig-Heatmap}
